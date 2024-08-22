@@ -66,7 +66,7 @@ const Message = ({ onSelectMessage }) => {
                 </div>
                 <div className="flex flex-col gap-y-[8px]">
                   <div className="flex items-start gap-x-[17px]">
-                    <span className="md:text-sm 2xl:text-[16px] tracking-tighter font-bold 1920:max-w-[414px] leading-3 ">{msg.title}</span>
+                    <span className="md:text-sm 2xl:text-[16px] tracking-tighter font-bold 1920:max-w-[414px] leading-3">{msg.title}</span>
                     <span className="leading-3 md:text-sm 2xl:text-[16px]">{msg.date}</span>
                   </div>
                   <div className="gap-y-1 flex flex-col ">
