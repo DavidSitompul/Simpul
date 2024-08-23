@@ -39,43 +39,88 @@ const FloatingBtn = ({ onBack, onClose }) => {
     <>
       <div className="fixed bottom-[31px] right-[34px] flex h-auto space-x-2 justify-center">
         {isOpen && (
-          <div className="flex space-x-2">
-            <div className="flex flex-col items-center w-[60px] h-[84px]">
-              <span className={`text-white ${isModalOpen || isTaskModalOpen ? "invisible" : "visible"}`}>Task</span>
-              <div className="relative bg-[#4F4F4F] rounded-full w-[60px] h-[60px] flex items-center justify-center">
-                <button
-                  onClick={toggleTaskModal}
-                  className={`absolute transition-transform duration-300 ${isTaskModalOpen ? "bg-[#8785FF] translate-x-[30%] text-white" : "bg-white text-gray-800"} rounded-full w-[60px] h-[60px] flex items-center justify-center`}
-                >
-                  <svg width="23" height="23" viewBox="0 0 31 31" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path
-                      fillRule="evenodd"
-                      clipRule="evenodd"
-                      d="M20.8187 2.51453H4.47368C3.78216 2.51453 3.21637 3.08032 3.21637 3.77184V21.3742L8.24561 16.3449H20.8187C21.5102 16.3449 22.076 15.7791 22.076 15.0876V3.77184C22.076 3.08032 21.5102 2.51453 20.8187 2.51453ZM19.5614 5.02908V13.8302H7.20201L6.46019 14.5721L5.73095 15.3013V5.02908H19.5614ZM24.5907 7.54381H27.1053C27.7968 7.54381 28.3626 8.10959 28.3626 8.80112V27.6608L23.3334 22.6315H9.50296C8.81144 22.6315 8.24565 22.0657 8.24565 21.3742V18.8596H24.5907V7.54381Z"
-                      fill={isTaskModalOpen ? "#FFFFFF" : "#8885FF"}
-                    />
-                  </svg>
-                </button>
+          <div>
+            {isTaskModalOpen ? (
+              <>
+                <div className="flex space-x-2">
+                  <div className="flex flex-col items-center w-[60px] h-[84px]">
+                    <span className={`text-white ${isModalOpen || isTaskModalOpen ? "invisible" : "visible"}`}>Inbox</span>
+                    <div className="relative bg-[#4F4F4F] rounded-full w-[60px] h-[60px] flex items-center justify-center">
+                      <button
+                        onClick={toggleModal}
+                        className={`absolute transition-transform duration-300 ${isModalOpen ? "bg-[#8785FF] translate-x-[30%] text-white" : "bg-white text-gray-800"} rounded-full w-[60px] h-[60px] flex items-center justify-center`}
+                      >
+                        <svg width="23" height="23" viewBox="0 0 31 31" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path
+                            fillRule="evenodd"
+                            clipRule="evenodd"
+                            d="M20.8187 2.51453H4.47368C3.78216 2.51453 3.21637 3.08032 3.21637 3.77184V21.3742L8.24561 16.3449H20.8187C21.5102 16.3449 22.076 15.7791 22.076 15.0876V3.77184C22.076 3.08032 21.5102 2.51453 20.8187 2.51453ZM19.5614 5.02908V13.8302H7.20201L6.46019 14.5721L5.73095 15.3013V5.02908H19.5614ZM24.5907 7.54381H27.1053C27.7968 7.54381 28.3626 8.10959 28.3626 8.80112V27.6608L23.3334 22.6315H9.50296C8.81144 22.6315 8.24565 22.0657 8.24565 21.3742V18.8596H24.5907V7.54381Z"
+                            fill={isModalOpen ? "#FFFFFF" : "#8885FF"}
+                          />
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+                  <div className="flex flex-col items-center w-[60px] h-[84px]">
+                    <span className={`text-white ${isModalOpen || isTaskModalOpen ? "invisible" : "visible"}`}>Task</span>
+                    <div className="relative bg-[#4F4F4F] rounded-full w-[60px] h-[60px] flex items-center justify-center">
+                      <button
+                        onClick={toggleTaskModal}
+                        className={`absolute transition-transform duration-300 ${isTaskModalOpen ? "bg-[#F8B76B] translate-x-[30%] text-white" : "bg-white text-gray-800"} rounded-full w-[60px] h-[60px] flex items-center justify-center`}
+                      >
+                        <svg width="22" height="22" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path
+                            fill-rule="evenodd"
+                            clip-rule="evenodd"
+                            d="M4.11114 4.66669H24.1111C25.3334 4.66669 26.3334 5.66669 26.3334 6.88891V21.3334C26.3334 22.5556 25.3334 23.5556 24.1111 23.5556H4.11114C2.88892 23.5556 1.88892 22.5556 1.88892 21.3334V6.88891C1.88892 5.66669 2.88892 4.66669 4.11114 4.66669ZM4.11114 6.88891V21.3334H13V6.88891H4.11114ZM24.1111 21.3334H15.2222V6.88891H24.1111V21.3334ZM23 10.7778H16.3334V12.4445H23V10.7778ZM16.3334 13.5556H23V15.2222H16.3334V13.5556ZM23 16.3334H16.3334V18H23V16.3334Z"
+                            fill={isTaskModalOpen ? "#FFFFFF" : "#8885FF"}
+                          />
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </>
+            ) : (
+              <div className="flex space-x-2">
+                <div className="flex flex-col items-center w-[60px] h-[84px]">
+                  <span className={`text-white ${isModalOpen || isTaskModalOpen ? "invisible" : "visible"}`}>Task</span>
+                  <div className="relative bg-[#4F4F4F] rounded-full w-[60px] h-[60px] flex items-center justify-center">
+                    <button
+                      onClick={toggleTaskModal}
+                      className={`absolute transition-transform duration-300 ${isTaskModalOpen ? "bg-[#F8B76B] translate-x-[30%] text-white" : "bg-white text-gray-800"} rounded-full w-[60px] h-[60px] flex items-center justify-center`}
+                    >
+                      <svg width="22" height="22" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                          fill-rule="evenodd"
+                          clip-rule="evenodd"
+                          d="M4.11114 4.66669H24.1111C25.3334 4.66669 26.3334 5.66669 26.3334 6.88891V21.3334C26.3334 22.5556 25.3334 23.5556 24.1111 23.5556H4.11114C2.88892 23.5556 1.88892 22.5556 1.88892 21.3334V6.88891C1.88892 5.66669 2.88892 4.66669 4.11114 4.66669ZM4.11114 6.88891V21.3334H13V6.88891H4.11114ZM24.1111 21.3334H15.2222V6.88891H24.1111V21.3334ZM23 10.7778H16.3334V12.4445H23V10.7778ZM16.3334 13.5556H23V15.2222H16.3334V13.5556ZM23 16.3334H16.3334V18H23V16.3334Z"
+                          fill={isTaskModalOpen ? "#FFFFFF" : "#F8B76B"}
+                        />
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+                <div className="flex flex-col items-center w-[60px] h-[84px]">
+                  <span className={`text-white ${isModalOpen || isTaskModalOpen ? "invisible" : "visible"}`}>Inbox</span>
+                  <div className="relative bg-[#4F4F4F] rounded-full w-[60px] h-[60px] flex items-center justify-center">
+                    <button
+                      onClick={toggleModal}
+                      className={`absolute transition-transform duration-300 ${isModalOpen ? "bg-[#8785FF] translate-x-[30%] text-white" : "bg-white text-gray-800"} rounded-full w-[60px] h-[60px] flex items-center justify-center`}
+                    >
+                      <svg width="23" height="23" viewBox="0 0 31 31" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                          fillRule="evenodd"
+                          clipRule="evenodd"
+                          d="M20.8187 2.51453H4.47368C3.78216 2.51453 3.21637 3.08032 3.21637 3.77184V21.3742L8.24561 16.3449H20.8187C21.5102 16.3449 22.076 15.7791 22.076 15.0876V3.77184C22.076 3.08032 21.5102 2.51453 20.8187 2.51453ZM19.5614 5.02908V13.8302H7.20201L6.46019 14.5721L5.73095 15.3013V5.02908H19.5614ZM24.5907 7.54381H27.1053C27.7968 7.54381 28.3626 8.10959 28.3626 8.80112V27.6608L23.3334 22.6315H9.50296C8.81144 22.6315 8.24565 22.0657 8.24565 21.3742V18.8596H24.5907V7.54381Z"
+                          fill={isModalOpen ? "#FFFFFF" : "#8885FF"}
+                        />
+                      </svg>
+                    </button>
+                  </div>
+                </div>
               </div>
-            </div>
-            <div className="flex flex-col items-center w-[60px] h-[84px]">
-              <span className={`text-white ${isModalOpen || isTaskModalOpen ? "invisible" : "visible"}`}>Inbox</span>
-              <div className="relative bg-[#4F4F4F] rounded-full w-[60px] h-[60px] flex items-center justify-center">
-                <button
-                  onClick={toggleModal}
-                  className={`absolute transition-transform duration-300 ${isModalOpen ? "bg-[#8785FF] translate-x-[30%] text-white" : "bg-white text-gray-800"} rounded-full w-[60px] h-[60px] flex items-center justify-center`}
-                >
-                  <svg width="23" height="23" viewBox="0 0 31 31" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path
-                      fillRule="evenodd"
-                      clipRule="evenodd"
-                      d="M20.8187 2.51453H4.47368C3.78216 2.51453 3.21637 3.08032 3.21637 3.77184V21.3742L8.24561 16.3449H20.8187C21.5102 16.3449 22.076 15.7791 22.076 15.0876V3.77184C22.076 3.08032 21.5102 2.51453 20.8187 2.51453ZM19.5614 5.02908V13.8302H7.20201L6.46019 14.5721L5.73095 15.3013V5.02908H19.5614ZM24.5907 7.54381H27.1053C27.7968 7.54381 28.3626 8.10959 28.3626 8.80112V27.6608L23.3334 22.6315H9.50296C8.81144 22.6315 8.24565 22.0657 8.24565 21.3742V18.8596H24.5907V7.54381Z"
-                      fill={isModalOpen ? "#FFFFFF" : "#8885FF"}
-                    />
-                  </svg>
-                </button>
-              </div>
-            </div>
+            )}
           </div>
         )}
 
