@@ -1,9 +1,16 @@
 // components/DetailsMessage.js
+"use client"
 import React, { useState } from "react"
 
 const DetailsMessage = ({ message, onBack, onClose }) => {
   const [messages, setMessages] = useState([
-    { sender: "You", text: "No worries. It will be completed ASAP. I’ve asked him yesterday.", time: "19:32", align: "right", type: "old" },
+    {
+      sender: "You",
+      text: "No worries. It will be completed ASAP. I’ve asked him yesterday.",
+      time: "19:32",
+      align: "right",
+      type: "old",
+    },
     {
       sender: "Mary Hilda",
       text: "Hello Obaidullah, I will be your case advisor for case #029290. I have assigned some homework for you to fill. Please keep up with the due dates. Should you have any questions, you can message me anytime. Thanks.",
@@ -11,9 +18,27 @@ const DetailsMessage = ({ message, onBack, onClose }) => {
       align: "left",
       type: "old",
     },
-    { sender: "You", text: "Please contact Mary for questions regarding the case bcs she will be managing your forms from now on! Thanks Mary.", time: "19:32", align: "right", type: "old" },
-    { sender: "Mary Hilda", text: "Sure thing, Claren", time: "19:32", align: "left", type: "old" },
-    { sender: "Mary Hilda", text: "Morning. I’ll try to do them. Thanks", time: "19:32", align: "left", type: "new" },
+    {
+      sender: "You",
+      text: "Please contact Mary for questions regarding the case bcs she will be managing your forms from now on! Thanks Mary.",
+      time: "19:32",
+      align: "right",
+      type: "old",
+    },
+    {
+      sender: "Mary Hilda",
+      text: "Sure thing, Claren",
+      time: "19:32",
+      align: "left",
+      type: "old",
+    },
+    {
+      sender: "Mary Hilda",
+      text: "Morning. I’ll try to do them. Thanks",
+      time: "19:32",
+      align: "left",
+      type: "new",
+    },
   ])
 
   const [newMessage, setNewMessage] = useState("")
@@ -87,7 +112,7 @@ const DetailsMessage = ({ message, onBack, onClose }) => {
           <div key={index}>
             {/* Divider for New Messages */}
             {msg.type === "new" && (
-              <div className="flex items-center gap-x-3 mb-[22px]">
+              <div className="flex items-center gap-x-3 mt-[22px]">
                 <div className="flex-grow border-t border-[#EB5757]" />
                 <span className="text-[#EB5757]">New Message</span>
                 <div className="flex-grow border-t border-[#EB5757]" />
@@ -109,10 +134,11 @@ const DetailsMessage = ({ message, onBack, onClose }) => {
                       />
                     </svg>
                     {menuVisible === index && (
-                      <div className="absolute mt-2 bg-white border border-gray-300 shadow-md rounded">
+                      <div className="absolute bg-white w-[126px] border border-[#BDBDBD] shadow-md rounded">
                         <button onClick={() => handleEdit(index)} className="block px-4 py-2 text-sm text-gray-700">
                           Edit
                         </button>
+                        <hr className="bg-[#BDBDBD" />
                         <button onClick={() => handleDelete(index)} className="block px-4 py-2 text-sm text-gray-700">
                           Delete
                         </button>
@@ -120,10 +146,10 @@ const DetailsMessage = ({ message, onBack, onClose }) => {
                     )}
                   </div>
                 )}
-                <div className={`1920:max-w-[${msg.align === "right" ? "432px" : "518px"}] bg-[#${msg.type === "new" ? "D2F2EA" : msg.align === "right" ? "EEDCFF" : "FCEED3"}] text-[12px] flex flex-col p-[10px] rounded-[5px] gap-y-1`}>
+                <div className={`1920:w-[518px] bg-[#${msg.type === "new" ? "D2F2EA" : msg.align === "right" ? "EEDCFF" : "FCEED3"}] text-[12px] flex flex-col p-[10px] rounded-[5px] gap-y-1`}>
                   <p className="leading-3">{msg.text}</p>
                   <p>{msg.time}</p>
-                </div>{" "}
+                </div>
                 {msg.align === "left" && (
                   <div className="w-4 h-4 items-center mt-[10px]" onClick={() => handleIconClick(index)}>
                     <svg width="16" height="16" viewBox="0 0 12 4" fill="none" xmlns="http://www.w3.org/2000/svg">
