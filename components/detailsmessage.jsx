@@ -146,8 +146,8 @@ const DetailsMessage = ({ message, onBack, onClose }) => {
                     )}
                   </div>
                 )}
-                <div className={`1920:w-[518px] bg-[#${msg.type === "new" ? "D2F2EA" : msg.align === "right" ? "EEDCFF" : "FCEED3"}] text-[12px] flex flex-col p-[10px] rounded-[5px] gap-y-1`}>
-                  <p className="leading-3">{msg.text}</p>
+                <div className={`1920:max-w-[${msg.align === "right" ? "432px" : "518px"}] bg-[#${msg.type === "new" ? "D2F2EA" : msg.align === "right" ? "EEDCFF" : "FCEED3"}] text-[12px] flex flex-col p-[10px] rounded-[5px] gap-y-1`}>
+                  <p className="leading-4 text-[14px]">{msg.text}</p>
                   <p>{msg.time}</p>
                 </div>
                 {msg.align === "left" && (
