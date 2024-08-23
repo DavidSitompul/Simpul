@@ -21,11 +21,10 @@ const DetailsMessage = ({ message, onBack, onClose }) => {
 
   const handleSendMessage = () => {
     if (newMessage.trim() !== "") {
-      const updatedMessages = [
-        ...messages,
-        { sender: "You", text: newMessage, time: "19:32", align: "right", type: "default" },
-        { sender: "dummy", text: "Hi there! This is a response from dummy.", time: "19:32", align: "left", type: "default" },
-      ]
+      // Update the existing messages
+      const updatedMessages = messages.map((msg) => (msg.type === "new" ? { ...msg, type: "old" } : msg))
+      updatedMessages.push({ sender: "You", text: newMessage, time: "19:32", align: "right", type: "default" }, { sender: "dummy", text: "Hi there! This is a response from dummy.", time: "19:32", align: "left", type: "new" })
+
       setMessages(updatedMessages)
       setShowNewMessageLine(true)
       setNewMessage("")
@@ -76,7 +75,7 @@ const DetailsMessage = ({ message, onBack, onClose }) => {
                     </svg>
                   </div>
                 )}
-                <div className={`1920:max-w-[${msg.align === "right" ? "432px" : "518px"}] bg-[#${msg.align === "right" ? "EEDCFF" : msg.type === "new" ? "EEDCFF" : "FCEED3"}] text-[12px] flex flex-col p-[10px] rounded-[5px] gap-y-1`}>
+                <div className={`1920:max-w-[${msg.align === "right" ? "432px" : "518px"}] bg-[#${msg.type === "new" ? "D2F2EA" : msg.align === "right" ? "EEDCFF" : "FCEED3"}] text-[12px] flex flex-col p-[10px] rounded-[5px] gap-y-1`}>
                   <p className="leading-3">{msg.text}</p>
                   <p>{msg.time}</p>
                 </div>
