@@ -93,7 +93,7 @@ const DetailsMessage = ({ message, onBack, onClose }) => {
               </svg>
             </button>
             <div className="flex flex-col leading-2">
-              <span className="md:text-sm 2xl:text-[16px] tracking-tighter font-bold">{message.title}</span>
+              <span className="md:text-sm 2xl:text-[16px] tracking-tighter font-bold text-[#2F80ED]">{message.title}</span>
               <span className="text-[14px]">3 Participant</span>
             </div>
           </div>
@@ -121,7 +121,7 @@ const DetailsMessage = ({ message, onBack, onClose }) => {
 
             {/* Message Block */}
             <div className={`flex flex-col ${msg.align === "right" ? "items-end" : ""}`}>
-              <span>{msg.sender}</span>
+              <span className={` ${msg.type === "new" ? "text-[#43B78D]" : msg.align === "right" ? "text-[#9B51E0]" : "text-[#E5A443]"}`}>{msg.sender}</span>
               <div className="flex gap-x-2">
                 {msg.align === "right" && (
                   <div className="w-4 h-4 items-center mt-[10px]" onClick={() => handleIconClick(index)}>
@@ -135,18 +135,22 @@ const DetailsMessage = ({ message, onBack, onClose }) => {
                     </svg>
                     {menuVisible === index && (
                       <div className="absolute bg-white w-[126px] border border-[#BDBDBD] shadow-md rounded">
-                        <button onClick={() => handleEdit(index)} className="block px-4 py-2 text-sm text-gray-700">
+                        <button onClick={() => handleEdit(index)} className="block px-4 py-2 text-sm text-[#2F80ED]">
                           Edit
                         </button>
                         <hr className="bg-[#BDBDBD" />
-                        <button onClick={() => handleDelete(index)} className="block px-4 py-2 text-sm text-gray-700">
+                        <button onClick={() => handleDelete(index)} className="block px-4 py-2 text-sm text-[#EB5757]">
                           Delete
                         </button>
                       </div>
                     )}
                   </div>
                 )}
-                <div className={`1920:max-w-[${msg.align === "right" ? "432px" : "518px"}] bg-[#${msg.type === "new" ? "D2F2EA" : msg.align === "right" ? "EEDCFF" : "FCEED3"}] text-[12px] flex flex-col p-[10px] rounded-[5px] gap-y-1`}>
+                <div
+                  className={`1920:max-w-[${msg.align === "right" ? "432px" : "518px"}] text-[12px] flex flex-col p-[10px] rounded-[5px] gap-y-1 ${
+                    msg.type === "new" ? "bg-[#D2F2EA]" : msg.align === "right" ? "bg-[#EEDCFF]" : "bg-[#FCEED3]"
+                  }`}
+                >
                   <p className="leading-4 text-[14px]">{msg.text}</p>
                   <p>{msg.time}</p>
                 </div>

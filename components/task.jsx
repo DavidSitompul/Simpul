@@ -5,8 +5,8 @@ import Caldender from "./calender"
 const Task = () => {
   const detailsTask = [
     {
-      titleTask: "title",
-      dateTask: "date",
+      titleTask: "Close off Case #012920- RODRIGUES, Amiguel",
+      dateTask: "12/06/2021",
       iconcalender: (
         <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
           <g id="schedule_24px">
@@ -21,26 +21,23 @@ const Task = () => {
         </svg>
       ),
       icondescription: (
-        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <g id="schedule_24px">
-            <path
-              id="icon/action/schedule_24px"
-              fill-rule="evenodd"
-              clip-rule="evenodd"
-              d="M9.99181 1.66663C5.39181 1.66663 1.66681 5.39996 1.66681 9.99996C1.66681 14.6 5.39181 18.3333 9.99181 18.3333C14.6001 18.3333 18.3335 14.6 18.3335 9.99996C18.3335 5.39996 14.6001 1.66663 9.99181 1.66663ZM10.0003 16.6666C6.31697 16.6666 3.33364 13.6833 3.33364 9.99996C3.33364 6.31662 6.31697 3.33329 10.0003 3.33329C13.6836 3.33329 16.667 6.31662 16.667 9.99996C16.667 13.6833 13.6836 16.6666 10.0003 16.6666ZM9.16681 5.83329H10.4168V10.2083L14.1668 12.4333L13.5418 13.4583L9.16681 10.8333V5.83329Z"
-              fill="#2F80ED"
-            />
-          </g>
+        <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M12.2165 0C12.0082 0 11.7915 0.0833333 11.6332 0.241667L10.1082 1.76667L13.2332 4.89167L14.7582 3.36667C15.0832 3.04167 15.0832 2.51667 14.7582 2.19167L12.8082 0.241667C12.6415 0.075 12.4332 0 12.2165 0ZM9.21667 5.01667L9.98333 5.78333L2.43333 13.3333H1.66667V12.5667L9.21667 5.01667ZM0 11.875L9.21667 2.65833L12.3417 5.78333L3.125 15H0V11.875Z"
+            fill="#2F80ED"
+          />
         </svg>
       ),
       calender: <Caldender />,
       descriptionTask:
         "Closing off this case since this application has been cancelled. No one really understand how this case could possibly be cancelled. The options and the documents within this document were totally a guaranteed for a success!",
-      timeLeftTask: "time left",
+      timeLeftTask: "2 Days Left",
     },
     {
-      titleTask: "title",
-      dateTask: "date",
+      titleTask: "Set up documentation report for several Cases : Case 145443, Case 192829 and Case 182203",
+      dateTask: "12/06/2021",
       iconcalender: (
         <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
           <g id="schedule_24px">
@@ -55,25 +52,22 @@ const Task = () => {
         </svg>
       ),
       icondescription: (
-        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <g id="schedule_24px">
-            <path
-              id="icon/action/schedule_24px"
-              fill-rule="evenodd"
-              clip-rule="evenodd"
-              d="M9.99181 1.66663C5.39181 1.66663 1.66681 5.39996 1.66681 9.99996C1.66681 14.6 5.39181 18.3333 9.99181 18.3333C14.6001 18.3333 18.3335 14.6 18.3335 9.99996C18.3335 5.39996 14.6001 1.66663 9.99181 1.66663ZM10.0003 16.6666C6.31697 16.6666 3.33364 13.6833 3.33364 9.99996C3.33364 6.31662 6.31697 3.33329 10.0003 3.33329C13.6836 3.33329 16.667 6.31662 16.667 9.99996C16.667 13.6833 13.6836 16.6666 10.0003 16.6666ZM9.16681 5.83329H10.4168V10.2083L14.1668 12.4333L13.5418 13.4583L9.16681 10.8333V5.83329Z"
-              fill="#2F80ED"
-            />
-          </g>
+        <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M12.2165 0C12.0082 0 11.7915 0.0833333 11.6332 0.241667L10.1082 1.76667L13.2332 4.89167L14.7582 3.36667C15.0832 3.04167 15.0832 2.51667 14.7582 2.19167L12.8082 0.241667C12.6415 0.075 12.4332 0 12.2165 0ZM9.21667 5.01667L9.98333 5.78333L2.43333 13.3333H1.66667V12.5667L9.21667 5.01667ZM0 11.875L9.21667 2.65833L12.3417 5.78333L3.125 15H0V11.875Z"
+            fill="#2F80ED"
+          />
         </svg>
       ),
       calender: <Caldender />,
       descriptionTask: "All Cases must include all payment transactions, all documents and forms filled. All conversations in comments and messages in channels and emails should be provided as well in.",
-      timeLeftTask: "time left",
+      timeLeftTask: "4 Days Left",
     },
     {
-      titleTask: "title",
-      dateTask: "date",
+      titleTask: "Set up documentation report for several Cases : Case 145443, Case 192829 and Case 182203",
+      dateTask: "22/06/2021",
       iconcalender: (
         <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
           <g id="schedule_24px">
@@ -88,31 +82,28 @@ const Task = () => {
         </svg>
       ),
       icondescription: (
-        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <g id="schedule_24px">
-            <path
-              id="icon/action/schedule_24px"
-              fill-rule="evenodd"
-              clip-rule="evenodd"
-              d="M9.99181 1.66663C5.39181 1.66663 1.66681 5.39996 1.66681 9.99996C1.66681 14.6 5.39181 18.3333 9.99181 18.3333C14.6001 18.3333 18.3335 14.6 18.3335 9.99996C18.3335 5.39996 14.6001 1.66663 9.99181 1.66663ZM10.0003 16.6666C6.31697 16.6666 3.33364 13.6833 3.33364 9.99996C3.33364 6.31662 6.31697 3.33329 10.0003 3.33329C13.6836 3.33329 16.667 6.31662 16.667 9.99996C16.667 13.6833 13.6836 16.6666 10.0003 16.6666ZM9.16681 5.83329H10.4168V10.2083L14.1668 12.4333L13.5418 13.4583L9.16681 10.8333V5.83329Z"
-              fill="#2F80ED"
-            />
-          </g>
+        <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M12.2165 0C12.0082 0 11.7915 0.0833333 11.6332 0.241667L10.1082 1.76667L13.2332 4.89167L14.7582 3.36667C15.0832 3.04167 15.0832 2.51667 14.7582 2.19167L12.8082 0.241667C12.6415 0.075 12.4332 0 12.2165 0ZM9.21667 5.01667L9.98333 5.78333L2.43333 13.3333H1.66667V12.5667L9.21667 5.01667ZM0 11.875L9.21667 2.65833L12.3417 5.78333L3.125 15H0V11.875Z"
+            fill="#2F80ED"
+          />
         </svg>
       ),
       calender: <Caldender />,
       descriptionTask: "No Description",
-      timeLeftTask: "time left",
+      timeLeftTask: "22/06/2021",
     },
     {
-      titleTask: "title",
-      dateTask: "date",
-      timeLeftTask: "time left",
+      titleTask: "Contact Mr Caleb - video conference?",
+      dateTask: "22/06/2021",
+      done: true,
     },
     {
-      titleTask: "title",
-      dateTask: "date",
-      timeLeftTask: "time left",
+      titleTask: "Assign 3 homework to Client A",
+      dateTask: "22/06/2021",
+      done: true,
     },
   ]
 
@@ -158,8 +149,8 @@ const Task = () => {
           return (
             <div key={i} className="overflow-y-auto sm:max-h-[247px] 2xl:max-h-[377px] 1920:max-h-[554px]">
               <div className="mt-[19px] flex items-start 1920:w-full mb-4">
-                <input type="checkbox" name="" id="" className="w-[18px] h-[18px] mr-[22px]" />
-                <span className="1920:w-[334px] 1920:mr-[56px] text-base font-bold">{dataTask.titleTask}</span>
+                <input type="checkbox" checked={!!dataTask.done} name="" id="" className="w-[18px] h-[18px] mr-[22px]" />
+                <span className={`1920:w-[334px] 1920:mr-[56px] text-base font-bold  ${dataTask.done ? "line-through" : ""}`}>{dataTask.titleTask}</span>
 
                 <div className="flex items-start text-[14px]">
                   <span className="1920:w-[75px]  1920:mr-[20px] text-[#EB5757]">{dataTask.timeLeftTask}</span>
@@ -193,7 +184,7 @@ const Task = () => {
                 <div>{dataTask.icondescription}</div>
                 <span className="text-[14px]">{dataTask.descriptionTask}</span>
               </div>
-              <hr className="w-full mt-[18px] borde=[#828282]" />
+              <hr className="w-full mt-[18px] border-[#828282]" />
             </div>
           )
         })}

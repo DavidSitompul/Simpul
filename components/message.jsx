@@ -38,7 +38,14 @@ const Message = ({ onSelectMessage }) => {
     <>
       <div className="flex justify-between 1920:gap-x-[490px] 1920:justify-center border-[#828282] items-center px-[10px] h-[32px]  lg:w-[400px] 2xl:w-[500px] border rounded-[5px] 1920:w-[666px]">
         <span>search</span>
-        <IoIosSearch size={16} />
+        <svg width="12" height="12" viewBox="0 0 32 31" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M21.1856 18.9783H22.5486L31.1579 27.6047L28.5872 30.1754L19.9607 21.5662V20.2032L19.4949 19.7201C17.528 21.4109 14.9746 22.4289 12.1968 22.4289C6.00304 22.4289 0.982422 17.4082 0.982422 11.2144C0.982422 5.02061 6.00304 0 12.1968 0C18.3907 0 23.4113 5.02061 23.4113 11.2144C23.4113 13.9922 22.3934 16.5456 20.7026 18.5124L21.1856 18.9783ZM4.433 11.2145C4.433 15.5104 7.90084 18.9783 12.1968 18.9783C16.4928 18.9783 19.9607 15.5104 19.9607 11.2145C19.9607 6.91846 16.4928 3.45062 12.1968 3.45062C7.90084 3.45062 4.433 6.91846 4.433 11.2145Z"
+            fill="#333333"
+          />
+        </svg>
       </div>
       <div className="overflow-y-auto sm:max-h-[337px] 2xl:max-h-[437px] 1920:max-h-[637px]">
         {messages.map((msg) => (
@@ -66,7 +73,7 @@ const Message = ({ onSelectMessage }) => {
                 </div>
                 <div className="flex flex-col gap-y-[8px]">
                   <div className="flex items-start gap-x-[17px]">
-                    <span className="md:text-sm 2xl:text-[16px] tracking-tighter font-bold 1920:max-w-[414px] leading-3">{msg.title}</span>
+                    <span className="md:text-sm 2xl:text-[16px] tracking-tighter font-bold 1920:max-w-[414px] leading-3 text-[#2F80ED]">{msg.title}</span>
                     <span className="leading-3 md:text-sm 2xl:text-[16px]">{msg.date}</span>
                   </div>
                   <div className="gap-y-1 flex flex-col ">
