@@ -59,6 +59,15 @@ const DetailsMessage = ({ message, onBack, onClose }) => {
       <div className="overflow-y-auto sm:max-h-[247px] 2xl:max-h-[377px] 1920:max-h-[554px]">
         {messages.map((msg, index) => (
           <div key={index}>
+            {/* Divider for New Messages */}
+            {msg.type === "new" && (
+              <div className="flex items-center gap-x-3 mb-[22px]">
+                <div className="flex-grow border-t border-[#EB5757]" />
+                <span className="text-[#EB5757]">New Message</span>
+                <div className="flex-grow border-t border-[#EB5757]" />
+              </div>
+            )}
+
             {/* Message Block */}
             <div className={`flex flex-col ${msg.align === "right" ? "items-end" : ""}`}>
               <span>{msg.sender}</span>
@@ -93,15 +102,6 @@ const DetailsMessage = ({ message, onBack, onClose }) => {
                 )}
               </div>
             </div>
-
-            {/* Divider */}
-            {index === messages.length - 2 && showNewMessageLine && (
-              <div className="flex items-center gap-x-3 mt-[22px]">
-                <div className="flex-grow border-t border-[#EB5757]" />
-                <span className="text-[#EB5757]">New Message</span>
-                <div className="flex-grow border-t border-[#EB5757]" />
-              </div>
-            )}
 
             {/* Today Divider */}
             {index === 0 && (
