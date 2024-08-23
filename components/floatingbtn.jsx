@@ -4,11 +4,13 @@ import { useState } from "react"
 import Modal from "./modal"
 import Message from "./message"
 import DetailsMessage from "./detailsmessage"
+import Task from "./task" // Import komponen Task
 
 const FloatingBtn = ({ onBack, onClose }) => {
   const [isOpen, setIsOpen] = useState(false)
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [selectedMessage, setSelectedMessage] = useState(null)
+  const [isTaskModalOpen, setIsTaskModalOpen] = useState(false) // Add state for Task modal
 
   const toggleMenu = () => {
     setIsOpen(!isOpen)
@@ -17,6 +19,12 @@ const FloatingBtn = ({ onBack, onClose }) => {
   const toggleModal = () => {
     setIsModalOpen(!isModalOpen)
     setSelectedMessage(null)
+    setIsTaskModalOpen(false) // Close Task modal when Inbox modal is toggled
+  }
+
+  const toggleTaskModal = () => {
+    setIsTaskModalOpen(!isTaskModalOpen) // Toggle Task modal
+    setIsModalOpen(false) // Close Inbox modal when Task modal is toggled
   }
 
   const handleSelectMessage = (msg) => {
@@ -33,8 +41,8 @@ const FloatingBtn = ({ onBack, onClose }) => {
         {isOpen && (
           <div className="flex space-x-2">
             <div className="flex flex-col items-center w-[60px] h-[84px]">
-              <span className={`text-white ${isModalOpen ? "invisible" : "visible"}`}>Task</span>
-              <button onClick={toggleModal} className={` ${isModalOpen ? "bg-blue-500 text-white" : "bg-white text-gray-800"} rounded-full w-[60px] h-[60px] items-center flex justify-center`}>
+              <span className={`text-white ${isTaskModalOpen ? "invisible" : "visible"}`}>Task</span>
+              <button onClick={toggleTaskModal} className={` ${isTaskModalOpen ? "bg-blue-500 text-white" : "bg-white text-gray-800"} rounded-full w-[60px] h-[60px] items-center flex justify-center`}>
                 <svg width="23" height="23" viewBox="0 0 31 31" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path
                     fillRule="evenodd"
@@ -62,7 +70,7 @@ const FloatingBtn = ({ onBack, onClose }) => {
         )}
 
         {/* Main Floating Button */}
-        {!isModalOpen && (
+        {!isModalOpen && !isTaskModalOpen && (
           <div className="mt-5">
             <button onClick={toggleMenu} className="w-[68px] h-[68px] items-center flex justify-center bg-[#2F80ED] rounded-full drop-shadow-floatBtnShadow">
               <svg width="18" height="32" viewBox="0 0 18 32" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -82,6 +90,13 @@ const FloatingBtn = ({ onBack, onClose }) => {
       <div className="fixed bottom-[110px] right-[34px] z-50">
         <Modal isOpen={isModalOpen} onClose={toggleModal} onBack={selectedMessage ? handleBack : null}>
           {selectedMessage ? <DetailsMessage message={selectedMessage} onBack={handleBack} onClose={toggleModal} /> : <Message onSelectMessage={handleSelectMessage} />}
+        </Modal>
+      </div>
+
+      {/* Modal for Task */}
+      <div className="fixed bottom-[110px] right-[34px] z-50">
+        <Modal isOpen={isTaskModalOpen} onClose={toggleTaskModal}>
+          <Task /> {/* Render the Task component */}
         </Modal>
       </div>
     </>
