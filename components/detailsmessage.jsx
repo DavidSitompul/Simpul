@@ -18,6 +18,8 @@ const DetailsMessage = ({ message, onBack, onClose }) => {
 
   const [newMessage, setNewMessage] = useState("")
   const [showNewMessageLine, setShowNewMessageLine] = useState(false)
+  const [menuVisible, setMenuVisible] = useState(null)
+  const [editIndex, setEditIndex] = useState(null)
 
   const handleSendMessage = () => {
     if (newMessage.trim() !== "") {
@@ -27,6 +29,30 @@ const DetailsMessage = ({ message, onBack, onClose }) => {
 
       setMessages(updatedMessages)
       setShowNewMessageLine(true)
+      setNewMessage("")
+    }
+  }
+
+  const handleIconClick = (index) => {
+    setMenuVisible(index === menuVisible ? null : index)
+  }
+
+  const handleEdit = (index) => {
+    setEditIndex(index)
+    setNewMessage(messages[index].text)
+    setMenuVisible(null)
+  }
+
+  const handleDelete = (index) => {
+    setMessages(messages.filter((_, i) => i !== index))
+    setMenuVisible(null)
+  }
+
+  const handleSaveEdit = () => {
+    if (editIndex !== null) {
+      const updatedMessages = messages.map((msg, index) => (index === editIndex ? { ...msg, text: newMessage } : msg))
+      setMessages(updatedMessages)
+      setEditIndex(null)
       setNewMessage("")
     }
   }
@@ -73,7 +99,7 @@ const DetailsMessage = ({ message, onBack, onClose }) => {
               <span>{msg.sender}</span>
               <div className="flex gap-x-2">
                 {msg.align === "right" && (
-                  <div className="w-4 h-4 items-center mt-[10px]">
+                  <div className="w-4 h-4 items-center mt-[10px]" onClick={() => handleIconClick(index)}>
                     <svg width="16" height="16" viewBox="0 0 12 4" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <path
                         fillRule="evenodd"
@@ -82,14 +108,24 @@ const DetailsMessage = ({ message, onBack, onClose }) => {
                         fill="#4F4F4F"
                       />
                     </svg>
+                    {menuVisible === index && (
+                      <div className="absolute mt-2 bg-white border border-gray-300 shadow-md rounded">
+                        <button onClick={() => handleEdit(index)} className="block px-4 py-2 text-sm text-gray-700">
+                          Edit
+                        </button>
+                        <button onClick={() => handleDelete(index)} className="block px-4 py-2 text-sm text-gray-700">
+                          Delete
+                        </button>
+                      </div>
+                    )}
                   </div>
                 )}
                 <div className={`1920:max-w-[${msg.align === "right" ? "432px" : "518px"}] bg-[#${msg.type === "new" ? "D2F2EA" : msg.align === "right" ? "EEDCFF" : "FCEED3"}] text-[12px] flex flex-col p-[10px] rounded-[5px] gap-y-1`}>
                   <p className="leading-3">{msg.text}</p>
                   <p>{msg.time}</p>
-                </div>
+                </div>{" "}
                 {msg.align === "left" && (
-                  <div className="w-4 h-4 items-center mt-[10px]">
+                  <div className="w-4 h-4 items-center mt-[10px]" onClick={() => handleIconClick(index)}>
                     <svg width="16" height="16" viewBox="0 0 12 4" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <path
                         fillRule="evenodd"
@@ -98,6 +134,16 @@ const DetailsMessage = ({ message, onBack, onClose }) => {
                         fill="#4F4F4F"
                       />
                     </svg>
+                    {menuVisible === index && (
+                      <div className="absolute mt-2 bg-white border border-gray-300 shadow-md rounded">
+                        <button onClick={() => handleEdit(index)} className="block px-4 py-2 text-sm text-gray-700">
+                          Edit
+                        </button>
+                        <button onClick={() => handleDelete(index)} className="block px-4 py-2 text-sm text-gray-700">
+                          Delete
+                        </button>
+                      </div>
+                    )}
                   </div>
                 )}
               </div>
@@ -115,7 +161,7 @@ const DetailsMessage = ({ message, onBack, onClose }) => {
         ))}
       </div>
       <div className="flex items-center mt-[22px]">
-        <input type="text" placeholder="Type a new message" className="1920:w-[580px] h-10 px-4 py-[10px] border border-[#828282] rounded-[5px]" value={newMessage} onChange={(e) => setNewMessage(e.target.value)} />
+        <input type="text" placeholder="Type a new message" className="1920:w-[580px] h-10 px-4 py-[10px] border border-[#828282] rounded-[5px]" value={newMessage} onChange={(e) => setNewMessage(e.target.value)} onBlur={handleSaveEdit} />
         <button onClick={handleSendMessage} className="ml-3 bg-[#2F80ED] text-white w-[76px] h-10 px-4 rounded-[5px] py-2">
           Send
         </button>
